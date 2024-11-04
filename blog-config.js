@@ -2,7 +2,7 @@ module.exports = {
   title: "Wingu.blog",
   description: "학습하고 생각한 것들을 기록해 나가기 위한 공간입니다.",
   author: "Wingu",
-  siteUrl: "https://devhudi.github.io/gatsby-starter-hoodie/",
+  siteUrl: "https://github.com/2win9/2win9.github.io/",
   links: {
     github: "https://github.com/2win9",
     linkedIn: "https://linkedin.com",
@@ -18,15 +18,8 @@ module.exports = {
   },
   useAbout: true,
   // See https://giscus.app/
-  giscus: {
+  utterances: {
     repo: "2win9/2win9.github.io",
-    repoId: "879618235",
-    category: "Comments",
-    categoryId: "DIC_kwDOFguqvs4ChwGy",
-    mapping: "pathname",
-    strict: "0",
-    reactionsEnabled: "1",
-    inputPosition: "bottom",
-    lang: "en",
+    type: "pathname",
   },
 }
