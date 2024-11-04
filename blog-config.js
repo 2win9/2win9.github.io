@@ -1,0 +1,32 @@
+module.exports = {
+  title: "Wingu.blog",
+  description: "학습하고 생각한 것들을 기록해 나가기 위한 공간입니다.",
+  author: "Wingu",
+  siteUrl: "https://devhudi.github.io/gatsby-starter-hoodie/",
+  links: {
+    github: "https://github.com/2win9",
+    linkedIn: "https://linkedin.com",
+    //facebook: "https://www.facebook.com",
+    //twitter: "https://twitter.com",
+    //x: "https://x.com",
+    instagram: "https://www.instagram.com",
+    //medium: "https://medium.com",
+    //blogger: "https://blogger.com",
+    email: "mailto:jeomjang2@gmail.com",
+    resume: "/resume",
+    //link: "https://hudi.blog",
+  },
+  useAbout: true,
+  // See https://giscus.app/
+  giscus: {
+    repo: "2win9/wingu.blog",
+    repoId: "MDEwOlJlcG9zaXRvcnkzNjk4NjMzNTg=",
+    category: "Comments",
+    categoryId: "DIC_kwDOFguqvs4ChwGy",
+    mapping: "pathname",
+    strict: "0",
+    reactionsEnabled: "1",
+    inputPosition: "bottom",
+    lang: "en",
+  },
+}
