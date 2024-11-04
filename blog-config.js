@@ -19,8 +19,8 @@ module.exports = {
   useAbout: true,
   // See https://giscus.app/
   giscus: {
-    repo: "2win9/wingu.blog",
-    repoId: "MDEwOlJlcG9zaXRvcnkzNjk4NjMzNTg=",
+    repo: "2win9/2win9.github.io",
+    repoId: "879618235",
     category: "Comments",
     categoryId: "DIC_kwDOFguqvs4ChwGy",
     mapping: "pathname",
