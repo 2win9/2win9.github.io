@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://github.com/sitemap-index.xml
-Host: https://github.com
+Sitemap: https://2win9.github.io/sitemap-index.xml
+Host: https://2win9.github.io
