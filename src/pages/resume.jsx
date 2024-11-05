@@ -118,7 +118,7 @@ const DescriptionTitle = styled.h2`
 `;
 
 const DescriptionOther = styled.h3`
-  font-size: 1.3rem; /* 적절한 크기로 조정 */
+  font-size: 1.2rem; /* 적절한 크기로 조정 */
   font-weight: normal;
 `;
 
@@ -200,7 +200,7 @@ const ResumePage = () => {
           </LeftSection>
           <RightSection>
             <Description>
-              풀스택 소프트웨어 엔지니어가 되기 위해 여러 가지 경험을 쌓고 있습니다. 논리적이고 깊이 있는 사고를 즐기며, 개발을 통해 더 나은 세상을 추구합니다.<br></br>
+              백엔드 개발자가 되기 위해 여러 가지 경험을 쌓고 있습니다. 더 좋은 결과를 위해 고민 하는 것을 좋아합니다. 새로운 언어와 기술에 거부감이 없으며 개발을 통해 더 나은 세상을 추구합니다.<br></br>
               <br></br>
               <Highlight>Interests</Highlight> <strong> BE, Mobile Programming, Cloud</strong><br></br>
               <Highlight>Skills</Highlight><strong> Spring Boot, Node.js, Express, Android Studio, MongoDB, MySQL, PostgreSQL</strong>
@@ -398,7 +398,7 @@ const ResumePage = () => {
           </LeftSection>
           <RightSection>
             <Description>
-              
+              진행 중
               
             </Description>
           </RightSection>
