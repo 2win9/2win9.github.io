@@ -380,9 +380,9 @@ const ResumePage = () => {
           </LeftSection>
           <RightSection>
             <Description>
-              <strong>GPA : 4.15 / 4.5<br></br></strong>
+              <strong>GPA : 4.18 / 4.5<br></br></strong>
               <strong>이수학점 : 150<br></br></strong>
-              <strong>총 7회 성적 장학금을 포함 각종 장학금 23,883,400원 수혜<br></br></strong>
+              <strong>총 7회 학업성적우수장학을 포함 각종 장학금 31,393,400원 수혜<br></br></strong>
               
             </Description>
           </RightSection>
