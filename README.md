@@ -82,4 +82,4 @@ GitHub Pages의 도메인 및 DNS 연결을 먼저 완료하고 ‘블로그 설
 
 - [Astro](https://docs.astro.build/)
 - [Pages CMS 시작하기](https://pagescms.org/docs/quick-start/)
-- 디자인 구조 참고: [DukY8n](https://duky8n.com/)
+- Thanks to [DukY8n](https://duky8n.com/) for the inspiration.
