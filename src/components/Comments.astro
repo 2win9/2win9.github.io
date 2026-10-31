@@ -1,0 +1,46 @@
+---
+import integrations from '../config/integrations.json';
+
+const comments = integrations.giscus;
+const enabled = Boolean(
+  comments.enabled &&
+  comments.repository.trim() &&
+  comments.repositoryId.trim() &&
+  comments.category.trim() &&
+  comments.categoryId.trim()
+);
+---
+{enabled && (
+  <section class="post-comments" aria-labelledby="comments-heading">
+    <h2 id="comments-heading">댓글</h2>
+    <div class="giscus"></div>
+    <script
+      is:inline
+      src="https://giscus.app/client.js"
+      data-repo={comments.repository}
+      data-repo-id={comments.repositoryId}
+      data-category={comments.category}
+      data-category-id={comments.categoryId}
+      data-mapping="pathname"
+      data-strict="1"
+      data-reactions-enabled="0"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="ko"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async
+    ></script>
+    <noscript>
+      <p>댓글을 보려면 JavaScript를 켜 주세요.</p>
+    </noscript>
+  </section>
+)}
+
+<style>
+  .post-comments { margin-top: 54px; padding-top: 26px; border-top: 1px solid var(--color-line); }
+  .post-comments h2 { color: var(--color-primary); font-size: 20px; font-weight: 600; letter-spacing: -.5px; margin-bottom: 18px; }
+  .giscus { min-height: 150px; }
+  noscript p { color: var(--color-muted); font-size: 14px; }
+</style>

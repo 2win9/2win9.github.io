@@ -1,6 +1,7 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Comments from '../../components/Comments.astro';
 import { getPosts, postUrl, withBase, categoryLabel, formatDate } from '../../lib/blog';
 export async function getStaticPaths() {
   return (await getPosts()).map((post) => ({ params: { slug: post.id }, props: { post } }));
@@ -27,6 +28,7 @@ const next = posts[index + 1];
     <div class="prose"><Content /></div>
     <div class="article-end"><a class="text-link" href={withBase('posts/')}>← 모든 기록</a><button class="quiet-button" id="copy-url" type="button">링크 복사</button><span id="copy-status" class="sr-only" role="status"></span></div>
     {next && <a class="next-post" href={postUrl(next)}><span>다음 기록</span><strong>{next.data.title}</strong><span aria-hidden="true">↗</span></a>}
+    <Comments />
   </article>
 </BaseLayout>
 <script>

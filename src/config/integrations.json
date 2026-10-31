@@ -1,0 +1,13 @@
+{
+  "giscus": {
+    "enabled": true,
+    "repository": "2win9/2win9.github.io",
+    "repositoryId": "R_kgDOVdzczw",
+    "category": "블로그 댓글",
+    "categoryId": "DIC_kwDOVdzcz84DKFFQ"
+  },
+  "cloudflare": {
+    "enabled": false,
+    "token": ""
+  }
+}

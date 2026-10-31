@@ -41,6 +41,15 @@ Pages CMS는 별도 서비스입니다. 현재 프로젝트에는 편집 설정�
 
 ‘공개’를 끄고 저장하면 원본 파일은 보관하면서 사이트의 목록, 상세 페이지, RSS에서 빠집니다. GitHub 저장소 자체의 접근 권한과는 별개입니다. 예시 글 세 개는 수정하거나 삭제해도 됩니다. 자신의 글로 바꾼 경우 ‘예시 글 표시’를 꺼 주세요.
 
+## 댓글과 방문통계
+
+Pages CMS의 **댓글 및 방문통계**에서 연결 정보를 수정할 수 있습니다. 설정은 `src/config/integrations.json`에 저장됩니다.
+
+- **giscus 댓글:** 저장소의 Discussions를 켜고 [giscus 앱](https://github.com/apps/giscus)을 이 저장소에 연결합니다. [giscus 설정](https://giscus.app/ko)에서 발급된 저장소 ID와 카테고리 ID를 입력하고 ‘댓글 사용’을 켭니다. 글 주소의 경로를 기준으로 댓글을 연결하며, 공개된 글 하단에 한국어 댓글 창이 표시됩니다.
+- **Cloudflare Web Analytics:** Cloudflare의 Web Analytics에 `2win9.github.io`를 등록하고, 제공된 스크립트의 `token` 값을 입력한 뒤 ‘방문통계 사용’을 켭니다. 이 값은 공개 스크립트용 사이트 식별자이며, Cloudflare API 토큰을 입력하는 곳이 아닙니다. 통계 코드는 배포용 빌드에서만 로드되므로 로컬 개발 방문은 집계하지 않습니다.
+
+연결 정보가 비어 있거나 사용 설정이 꺼져 있으면 해당 외부 스크립트를 로드하지 않습니다. 댓글은 GitHub Discussions에서, 방문통계는 Cloudflare 대시보드에서 관리합니다.
+
 ## 로컬 개발
 
 Node.js 24 LTS 환경을 권장합니다. 설치 버전은 `package-lock.json`으로 고정합니다.

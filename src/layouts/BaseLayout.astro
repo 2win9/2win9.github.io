@@ -1,5 +1,6 @@
 ---
 import settings from '../config/site.json';
+import WebAnalytics from '../components/WebAnalytics.astro';
 import { withBase, httpsUrl } from '../lib/blog';
 import '../styles/global.css';
 
@@ -56,5 +57,6 @@ const current = Astro.url.pathname;
         <div><a href={withBase('rss.xml')}>RSS</a><a href={withBase('write/')}>글 관리</a></div>
       </footer>
     </div>
+    <WebAnalytics />
   </body>
 </html>

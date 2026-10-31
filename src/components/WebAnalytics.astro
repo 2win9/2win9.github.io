@@ -1,0 +1,14 @@
+---
+import integrations from '../config/integrations.json';
+
+const token = integrations.cloudflare.token.trim();
+const enabled = import.meta.env.PROD && integrations.cloudflare.enabled && token.length > 0;
+---
+{enabled && (
+  <script
+    is:inline
+    defer
+    src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon={JSON.stringify({ token })}
+  ></script>
+)}

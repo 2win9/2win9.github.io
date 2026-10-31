@@ -155,3 +155,40 @@ content:
             label: 내용
             type: text
             required: true
+
+  - name: integrations
+    label: 댓글 및 방문통계
+    type: file
+    path: src/config/integrations.json
+    format: json
+    fields:
+      - name: giscus
+        label: GitHub 댓글
+        type: object
+        fields:
+          - name: enabled
+            label: 댓글 사용
+            type: boolean
+          - name: repository
+            label: 저장소 (owner/repo)
+            type: string
+          - name: repositoryId
+            label: giscus 저장소 ID
+            type: string
+          - name: category
+            label: 댓글 카테고리 이름
+            type: string
+          - name: categoryId
+            label: giscus 카테고리 ID
+            type: string
+      - name: cloudflare
+        label: Cloudflare Web Analytics
+        type: object
+        fields:
+          - name: enabled
+            label: 방문통계 사용
+            type: boolean
+          - name: token
+            label: Web Analytics 사이트 토큰
+            type: string
+            description: Cloudflare가 제공한 스크립트의 token 값을 입력합니다.
