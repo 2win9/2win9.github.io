@@ -7,7 +7,7 @@ const enabled = import.meta.env.PROD && integrations.cloudflare.enabled && token
 {enabled && (
   <script
     is:inline
-    defer
+    type="module"
     src="https://static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon={JSON.stringify({ token })}
   ></script>

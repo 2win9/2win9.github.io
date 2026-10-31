@@ -7,7 +7,7 @@
     "categoryId": "DIC_kwDOVdzcz84DKFFQ"
   },
   "cloudflare": {
-    "enabled": false,
-    "token": ""
+    "enabled": true,
+    "token": "e80928816fa14d9d93f5321d858625f8"
   }
 }
