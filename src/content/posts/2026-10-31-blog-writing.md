@@ -14,7 +14,7 @@ example: true
 
 ## 작성은 웹에서
 
-[Pages CMS](https://app.pagescms.org/)에 로그인한 뒤 `2win9-blog` 저장소를 선택합니다. ‘글’에서 새 글을 만들거나 기존 글을 열어 수정합니다.
+[Pages CMS](https://app.pagescms.org/)에 로그인한 뒤 `2win9.github.io` 저장소를 선택합니다. ‘글’에서 새 글을 만들거나 기존 글을 열어 수정합니다.
 
 제목과 본문을 작성하고 분류를 선택합니다. 이미지는 본문 편집기에서 업로드할 수 있습니다. 글에 코드를 넣을 때는 Markdown 편집 모드에서 코드 블록을 사용해도 됩니다.
 

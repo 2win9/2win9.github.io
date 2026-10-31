@@ -1,6 +1,6 @@
 # 2win9
 
-Astro로 만든 작은 개발 블로그입니다. 저장소 이름은 **2win9-blog**를 권장합니다.
+Astro로 만든 2win9 개발 블로그입니다. 저장소는 **2win9.github.io**, 블로그 주소는 **https://2win9.github.io/** 입니다.
 
 기본은 라이트 모드입니다.
 
@@ -10,17 +10,17 @@ Astro로 만든 작은 개발 블로그입니다. 저장소 이름은 **2win9-bl
 
 ### 처음 한 번: GitHub Pages 배포
 
-1. 자신의 GitHub 계정에 `2win9-blog` 저장소를 만들고 이 프로젝트 소스를 `main` 브랜치에 올립니다. `node_modules`, `dist`, `.astro`, `.sites-runtime` 폴더는 올리지 않습니다.
+1. `2win9` GitHub 계정에 `2win9.github.io` 저장소를 만들고 이 프로젝트 소스를 `main` 브랜치에 올립니다. `node_modules`, `dist`, `.astro`, `.sites-runtime` 폴더는 올리지 않습니다.
 2. 저장소의 **Settings → Pages → Build and deployment → Source**를 **GitHub Actions**로 선택합니다.
 3. **Actions → Publish 2win9 → Run workflow**를 실행합니다. 이후에는 글이나 설정이 저장될 때 자동 배포됩니다.
-4. 일반 저장소라면 블로그 주소는 `https://내아이디.github.io/2win9-blog/`가 됩니다. GitHub Actions 빌드에서 저장소 이름과 기본 경로를 자동으로 계산하므로 코드 수정은 필요 없습니다.
+4. 블로그 주소는 `https://2win9.github.io/`입니다. GitHub Actions 빌드에서 사용자 사이트 저장소 이름을 확인해 기본 경로를 `/`로 설정합니다.
 
 공개 저장소의 글 파일은 ‘공개’를 꺼도 저장소에서 읽을 수 있습니다. 비공개 초안이 필요하면 저장소와 GitHub Pages의 계정별 제공 조건을 확인한 뒤 비공개 저장소를 선택하세요. ‘공개’는 사이트 노출 여부를 정하는 설정입니다.
 
 ### 처음 한 번: 웹 편집기 연결
 
 1. [Pages CMS](https://app.pagescms.org/)에서 GitHub로 로그인합니다.
-2. Pages CMS GitHub App에 **2win9-blog 저장소만** 연결합니다.
+2. Pages CMS GitHub App에 **2win9.github.io 저장소만** 연결합니다.
 3. 해당 저장소와 `main` 브랜치를 선택합니다. 프로젝트 루트의 `.pages.yml`이 글 편집 화면을 구성합니다.
 4. ‘블로그 설정’에서 GitHub 프로필과 저장소 주소를 넣고 저장합니다. 소개글, 홈 제목, 주제색도 여기서 바꿀 수 있습니다.
 
@@ -71,7 +71,7 @@ npm run preview
 
 ## 개인 도메인
 
-GitHub Pages의 도메인 및 DNS 연결을 먼저 완료하고 ‘블로그 설정’의 개인 도메인 주소를 `https://example.com` 형태로 입력합니다. `public/CNAME`에도 도메인을 입력합니다. 개인 도메인을 설정하면 기본 저장소 경로를 사용하지 않습니다.
+GitHub Pages의 도메인 및 DNS 연결을 먼저 완료하고 ‘블로그 설정’의 개인 도메인 주소를 `https://example.com` 형태로 입력합니다. 이 프로젝트는 사용자 지정 GitHub Actions 워크플로로 배포하므로 `CNAME` 파일은 필요하지 않습니다. 개인 도메인을 설정하면 기본 저장소 경로를 사용하지 않습니다.
 
 ## 색상
 
