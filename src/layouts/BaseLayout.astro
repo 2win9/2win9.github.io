@@ -1,0 +1,60 @@
+---
+import settings from '../config/site.json';
+import { withBase, httpsUrl } from '../lib/blog';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+const { title, description = settings.description, noindex = false } = Astro.props;
+const pageTitle = title ? `${title} · ${settings.name}` : `${settings.name} — 개발 기록`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const primary = /^#[0-9a-f]{6}$/i.test(settings.primaryColor) ? settings.primaryColor : '#333F48';
+const github = httpsUrl(settings.github);
+const postsPath = withBase('posts/');
+const aboutPath = withBase('about/');
+const current = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="ko" data-theme="light" style={`--color-primary: ${primary}`}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#FAFAF9" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
+    <link rel="alternate" type="application/rss+xml" title={`${settings.name} RSS`} href={withBase('rss.xml')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={settings.name} />
+    <meta property="og:locale" content="ko_KR" />
+    <meta name="twitter:card" content="summary" />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="wordmark" href={withBase()} aria-label={`${settings.name} 홈`}>{settings.name}<span class="wordmark-dot" aria-hidden="true">.</span></a>
+        <nav class="site-nav" aria-label="주 메뉴">
+          <a href={postsPath} aria-current={current.startsWith(postsPath) ? 'page' : undefined}>기록</a>
+          <a href={aboutPath} aria-current={current === aboutPath ? 'page' : undefined}>소개</a>
+          {github && <a class="github-link" href={github} target="_blank" rel="noopener noreferrer" aria-label="GitHub 프로필, 새 창">GitHub <span aria-hidden="true">↗</span></a>}
+        </nav>
+      </header>
+      <main id="main"><slot /></main>
+      <footer class="site-footer">
+        <span>© {new Date().getFullYear()} {settings.name}</span>
+        <div><a href={withBase('rss.xml')}>RSS</a><a href={withBase('write/')}>글 관리</a></div>
+      </footer>
+    </div>
+  </body>
+</html>

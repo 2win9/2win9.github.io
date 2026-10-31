@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { postUrl, formatDate, categoryLabel } from '../lib/blog';
+interface Props { posts: CollectionEntry<'posts'>[]; detailed?: boolean; filterable?: boolean; }
+const { posts, detailed = false, filterable = false } = Astro.props;
+---
+<ul class:list={['post-list', { 'post-list-detailed': detailed }]}>
+  {posts.map((post) => (
+    <li class="post-item" data-post={filterable || undefined} data-category={filterable ? post.data.category : undefined}
+      data-search={filterable ? `${post.data.title} ${post.data.description} ${post.data.tags.join(' ')} ${categoryLabel(post.data.category)}`.toLocaleLowerCase('ko') : undefined}>
+      <a class="post-link" href={postUrl(post)}>
+        <div class="post-link-main">
+          <span class="post-title">{post.data.title}</span>
+          {post.data.example && <span class="example-label">예시</span>}
+          {detailed && post.data.description && <p class="post-description">{post.data.description}</p>}
+          {detailed && <span class="post-category">{categoryLabel(post.data.category)}{post.data.tags.length > 0 && ` · ${post.data.tags.join(' · ')}`}</span>}
+        </div>
+        <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+      </a>
+    </li>
+  ))}
+</ul>

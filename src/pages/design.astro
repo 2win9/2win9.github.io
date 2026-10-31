@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="색상 비교" noindex>
+  <header class="page-heading"><p class="eyebrow">COLOR STUDY</p><h1>같은 기록, 다른 분위기.</h1><p class="page-description">주제색을 바꾸어 링크와 선택 상태를 비교해 보세요.</p></header>
+  <div class="palette-controls" role="group" aria-label="주제색 비교">
+    <button type="button" data-color="#333F48" aria-pressed="true"><i style="background:#333F48" aria-hidden="true"></i>차콜 <span>추천</span></button>
+    <button type="button" data-color="#536B7A" aria-pressed="false"><i style="background:#536B7A" aria-hidden="true"></i>블루그레이</button>
+    <button type="button" data-color="#316763" aria-pressed="false"><i style="background:#316763" aria-hidden="true"></i>딥틸</button>
+  </div>
+  <section class="palette-preview" aria-label="블로그 색상 미리 보기">
+    <p class="eyebrow">2win9</p><h2>배운 것을 내 언어로.</h2><p>작은 질문에서 시작해, 이해하고 기록하는 과정.</p><a href="#color-tokens" class="text-link">기록 읽기 ↗</a>
+    <div class="palette-line"></div>
+    <div class="palette-post"><span>개발 블로그를 시작하며</span><time>2026.10.31</time></div>
+  </section>
+  <div class="color-tokens" id="color-tokens"><div><span>주제색</span><code id="primary-value">#333F48</code></div><div><span>배경</span><code>#FAFAF9</code></div><div><span>본문</span><code>#24292F</code></div><div><span>로고 회색 참고</span><code>#B3B2B2</code></div></div>
+  <p class="helper-copy" id="palette-status" aria-live="polite">차콜 · 이 페이지에서만 미리 적용됩니다.</p>
+  <p class="helper-copy">실제 주제색은 글 관리의 ‘블로그 설정’에서 변경할 수 있습니다. 기본 화면은 라이트 모드입니다.</p>
+</BaseLayout>
+<script>
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-color]')];
+  const initial = document.documentElement.style.getPropertyValue('--color-primary');
+  function apply(color: string, label: string) {
+    document.documentElement.style.setProperty('--color-primary', color);
+    document.querySelector<HTMLElement>('#primary-value')!.textContent = color;
+    document.querySelector<HTMLElement>('#palette-status')!.textContent = `${label} · 이 페이지에서만 미리 적용됩니다.`;
+    buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.color === color)));
+  }
+  buttons.forEach((button) => button.addEventListener('click', () => apply(button.dataset.color!, button.dataset.color === '#333F48' ? '차콜' : button.dataset.color === '#536B7A' ? '블루그레이' : '딥틸')));
+  if (buttons.some((button) => button.dataset.color === initial)) apply(initial, initial === '#333F48' ? '차콜' : initial === '#536B7A' ? '블루그레이' : '딥틸');
+</script>

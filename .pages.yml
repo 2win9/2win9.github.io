@@ -1,0 +1,114 @@
+media:
+  input: public/images
+  output: /images
+  rename: random
+  categories: [image]
+
+content:
+  - name: posts
+    label: 글
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: "{year}-{month}-{day}-{hour}{minute}{second}-{primary}.md"
+      field: false
+    view:
+      primary: title
+      fields: [title, category, pubDate, published]
+      sort: pubDate
+      order: desc
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: description
+        label: 한 줄 설명
+        type: text
+      - name: category
+        label: 분류
+        type: select
+        default: notes
+        options:
+          values:
+            - name: notes
+              label: 공부 기록
+            - name: logs
+              label: 개발 기록
+            - name: thoughts
+              label: 생각
+      - name: pubDate
+        label: 작성일
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: updatedDate
+        label: 수정일 (필요할 때만)
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
+      - name: tags
+        label: 태그
+        type: string
+        list: true
+      - name: published
+        label: 공개
+        type: boolean
+        default: true
+        description: 끄면 블로그에 표시하지 않고 파일만 보관합니다.
+      - name: example
+        label: 예시 글 표시
+        type: boolean
+        default: false
+        description: 샘플 글을 자신의 글로 바꾼 후에는 꺼 주세요.
+      - name: body
+        label: 본문
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+
+  - name: site
+    label: 블로그 설정
+    type: file
+    path: src/config/site.json
+    format: json
+    fields:
+      - name: name
+        label: 블로그 이름
+        type: string
+        required: true
+      - name: description
+        label: 한 줄 소개
+        type: text
+      - name: intro
+        label: 홈 제목 (줄바꿈 가능)
+        type: text
+      - name: about
+        label: 소개 페이지 본문
+        type: text
+      - name: primaryColor
+        label: 주제색
+        type: select
+        options:
+          values:
+            - name: "#333F48"
+              label: 차콜 (추천)
+            - name: "#536B7A"
+              label: 블루그레이
+            - name: "#316763"
+              label: 딥틸
+      - name: github
+        label: GitHub 프로필 주소 (선택)
+        type: string
+      - name: repositoryUrl
+        label: GitHub 저장소 주소 (선택)
+        type: string
+      - name: siteUrl
+        label: 개인 도메인 주소 (사용할 때만)
+        type: string
+        description: GitHub Pages 기본 주소를 쓰면 비워 둡니다. 개인 도메인을 쓸 때만 https 주소를 입력합니다.

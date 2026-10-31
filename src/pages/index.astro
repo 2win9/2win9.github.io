@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import settings from '../config/site.json';
+import { getPosts, categories, withBase } from '../lib/blog';
+const posts = await getPosts();
+---
+<BaseLayout>
+  <section class="home-intro" aria-labelledby="intro-title">
+    <p class="eyebrow">{settings.name}'s journal</p>
+    <h1 id="intro-title">{settings.intro}</h1>
+    <p class="intro-description">{settings.description}</p>
+    <a class="text-link intro-link" href={withBase('about/')}>조금 더 알아보기 <span aria-hidden="true">↗</span></a>
+  </section>
+  <div class="home-sections">
+    {categories.map((category) => {
+      const items = posts.filter((post) => post.data.category === category.id);
+      return (
+        <section class="home-section" aria-labelledby={`section-${category.id}`}>
+          <div class="section-heading">
+            <h2 id={`section-${category.id}`}>{category.label}<span class="section-count">{items.length}</span></h2>
+            <a href={`${withBase('posts/')}?category=${category.id}`} aria-label={`${category.label} 전체 보기`}>전체 보기 <span aria-hidden="true">↗</span></a>
+          </div>
+          {items.length > 0 ? <PostList posts={items.slice(0, 4)} /> : <p class="empty-section">아직 작성된 글이 없습니다.</p>}
+        </section>
+      );
+    })}
+  </div>
+</BaseLayout>
