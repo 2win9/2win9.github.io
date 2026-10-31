@@ -1,11 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import portrait from '../assets/about-portrait.jpg';
 import settings from '../config/site.json';
 import { withBase, httpsUrl } from '../lib/blog';
 const github = httpsUrl(settings.github);
+const paragraphs = settings.about.split(/\n\s*\n/).filter(Boolean);
 ---
 <BaseLayout title="소개">
-  <header class="page-heading"><p class="eyebrow">ABOUT</p><h1>안녕하세요, {settings.name}입니다.</h1></header>
-  <div class="about-content"><p>{settings.about}</p></div>
+  <header class="page-heading"><p class="eyebrow">ABOUT</p><h1>안녕하세요, {settings.authorName}입니다.</h1></header>
+  <div class="about-layout">
+    <div class="about-content">
+      {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+    <figure class="about-portrait">
+      <Image src={portrait} alt="할리우드 사인을 바라보는 이승구의 뒷모습" width={900} height={1200} format="webp" quality={85} loading="eager" class="about-portrait-image" />
+    </figure>
+  </div>
   <div class="about-links"><a class="text-link" href={withBase('posts/')}>기록 읽기 ↗</a>{github && <a class="text-link" href={github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}</div>
 </BaseLayout>

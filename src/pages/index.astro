@@ -7,9 +7,10 @@ const posts = await getPosts();
 ---
 <BaseLayout>
   <section class="home-intro" aria-labelledby="intro-title">
-    <p class="eyebrow">{settings.name}'s journal</p>
+    <p class="eyebrow">{settings.eyebrow}</p>
     <h1 id="intro-title">{settings.intro}</h1>
     <p class="intro-description">{settings.description}</p>
+    <p class="intro-tagline">{settings.tagline}</p>
     <a class="text-link intro-link" href={withBase('about/')}>조금 더 알아보기 <span aria-hidden="true">↗</span></a>
   </section>
   <div class="home-sections">
