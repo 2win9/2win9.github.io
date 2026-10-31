@@ -121,3 +121,37 @@ content:
         label: 개인 도메인 주소 (사용할 때만)
         type: string
         description: GitHub Pages 기본 주소를 쓰면 비워 둡니다. 개인 도메인을 쓸 때만 https 주소를 입력합니다.
+
+  - name: timeline
+    label: 소개 타임라인
+    type: file
+    path: src/config/timeline.json
+    format: json
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: description
+        label: 한 줄 설명
+        type: text
+      - name: range
+        label: 표시 기간
+        type: string
+      - name: entries
+        label: 이야기
+        type: object
+        list: true
+        fields:
+          - name: date
+            label: 연도 또는 시기
+            type: string
+            required: true
+          - name: title
+            label: 제목
+            type: string
+            required: true
+          - name: body
+            label: 내용
+            type: text
+            required: true
